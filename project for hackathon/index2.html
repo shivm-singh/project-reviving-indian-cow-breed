@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reviving Indigenous Indian Cow Breeds | Gaumitra</title>
+    <meta name="description" content="Gaumitra promotes sustainable practices for indigenous cow breeds through technology and awareness.">
+    <meta property="og:title" content="Reviving Indigenous Indian Cow Breeds | Gaumitra" />
+    <meta property="og:description" content="Gaumitra promotes sustainable practices for indigenous cow breeds through technology and awareness." />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #32aa27;
+            --primary-dark: #26801d;
+            --primary-light: #41d034;
+            --dark-color: #162415;
+            --darker-color: #020402;
+            --light-color: #fff;
+            --text-color: #595959;
+            --border-color: #6e6b6b;
+            --error-color: #ec6366;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--text-color);
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light-color);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--darker-color);
+            text-decoration: none;
+        }
+        
+        .brand:hover {
+            color: var(--darker-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #eef1ef;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--darker-color);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: var(--light-color);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--darker-color);
+            border-color: var(--darker-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--light-color);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--light-color);
+    
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--darker-color);
+        }
+        
+        .about-content {
+            display: flex;
+            text-align: justify;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        /* Breeds Section */
+        .breeds {
+            padding: 80px 0;
+            background-color: #eef1ef;
+        }
+        
+        .breeds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .breed-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .breed-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .breed-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .breed-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .breed-card:hover .breed-image img {
+            transform: scale(1.1);
+        }
+        
+        .breed-info {
+            padding: 20px;
+        }
+        
+        .breed-info h3 {
+            margin-bottom: 10px;
+            color: var(--darker-color);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            background-color: var(--light-color);
+            margin-left: 150px;
+margin-right: 150px;
+margin-bottom: 10px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand {
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--light-color);
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-nav ul {
+            list-style: none;
+        }
+        
+        .footer-nav ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
+        
+        .footer-nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, .about-image {
+                flex: none;
+                width: 100%;
+            }
+            
+            .about-image {
+                margin-top: 30px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .brand {
+                margin-bottom: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-nav {
+                margin-top: 30px;
+            }
+        }
+    </style>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="brand">Gaumitra</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#breeds">Breeds</a></li>
+                    <li><a href="/gaumitra/project for hackathon/cowbreed.html">Why Matters</a></li>
+                     <li><a href="#products">Product</a></li> 
+                     <li><a href="/Mang.html">Manage</a></li> 
+
+                    <li><a href="/gaumitra/project for hackathon/mission.html">Our Mission</a></li> 
+                    <li><a href="/gaumitra/project for hackathon/chat.html">Chatbot</a></li> 
+ 
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url(cowz.jpg);">
+        <div class="container">
+            <h1>Reviving Indigenous Indian Cow Breeds</h1>
+            <p>Gaumitra promotes sustainable practices for indigenous cow breeds through technology and awareness.</p>
+            <a href="#about" class="btn btn-primary">Learn More</a>
+            <a href="#contact" class="btn btn-secondary">Get Involved</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Indigenous Cow Breeds</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>India is home to some of the most diverse and resilient indigenous cow breeds in the world. These breeds have evolved over centuries to thrive in local conditions and play a vital role in sustainable agriculture.</p>
+                    <p>However, many of these native breeds are now endangered due to the increasing popularity of exotic breeds and changing agricultural practices.</p>
+                    <p>At Gaumitra, we're committed to preserving these genetic treasures through conservation efforts, research, and community engagement.</p>
+                    <p><a href="#contact"><u><center>Get in touch </center> </u></a></p>
+
+                </div>
+ 
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Indigenous Indian cow">
+                </div>
+            </div>
+ 
+        </div>
+ 
+    </section>
+
+     <!-- Breeds Section -->
+    <section id="breeds" class="breeds">
+        <div class="container">
+            <h2 class="section-title">Our Native Breeds</h2>
+            <div class="breeds-grid">
+                <div class="breed-card">
+                    <div class="breed-image">
+                        <img src="https://th.bing.com/th/id/OIP.zeWe966tdpYhRHFUCXgp4AHaE6?w=305&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Gir cow">
+                    </div>
+                    <div class="breed-info">
+                        <h3>Gir</h3>
+                        <p>Originating from Gujarat, the Gir is known for its tolerance to stressful conditions and high milk production.</p>
+                        <a href='/gaumitra/project for hackathon/payment.html' class="btn btn-primary">Buy Now</a>
+
+                    </div>
+                </div>
+                
+                <div class="breed-card">
+                    <div class="breed-image">
+                        <img src="https://inmarathi.com/wp-content/uploads/2017/04/sahiwal-cow-marathipizza.jpg" alt="Sahiwal cow">
+                    </div>
+                    <div class="breed-info">
+                        <h3>Sahiwal</h3>
+                        <p>From the Punjab region, Sahiwal is considered one of the best dairy breeds in India and Pakistan.</p>
+                        <a href='/gaumitra/project for hackathon/payment.html' class="btn btn-primary">Buy Now</a>
+
+                    </div>
+                </div>
+                
+                <div class="breed-card">
+                    <div class="breed-image">
+                        <img src="https://i.pinimg.com/originals/f2/fe/0d/f2fe0d31ba5381ecd5d4de023baa7e3e.jpg" alt="Red Sindhi cow">
+                    </div>
+                    <div class="breed-info">
+                        <h3>Red Sindhi</h3>
+                        <p>This breed from Sindh province (now in Pakistan) is known for its heat tolerance and disease resistance.</p>
+                        <a href='/gaumitra/project for hackathon/payment.html' class="btn btn-primary">Buy Now</a>
+ 
+                    </div>
+                </div>
+            </div>
+            <p><center><u>for more</u></center></p>
+        </div>
+    </section>
+     
+      <!-- Product Section -->
+<section id="products" class="products">
+    <div class="container">
+        <h2 class="section-title">Our Products</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.llG1jYH16ZSlc4RSP-2XMgHaEO?w=266&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Product 1">
+                <div class="product-info">
+                    <h3>A2 Cow Milk</h3>
+                    <p>Fresh and pure organic milk from indigenous breeds.</p>
+                    <a href='/gaumitra/project for hackathon/payment.html' class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.v8WpOA_44eXStcaEfLmqBAHaE8?w=282&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Product 2">
+                <div class="product-info">
+                    <h3>Ghee (Clarified Butter)</h3>
+                    <p>Traditional, creamy ghee made from healthy cow milk.</p>
+                    <a href='/gaumitra/project for hackathon/payment.html' class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <img src="https://th.bing.com/th/id/OIP.qOT-HnZbETZS04l5v2zFQwHaFj?w=246&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Product 3">
+                <div class="product-info">
+                    <h3>Fresh Curd</h3>
+                    <p>Rich, creamy curd made with natural fermentation.</p>
+                    <a href='/gaumitra/project for hackathon/payment.html' class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <p><a href=""><u><center>for more</center> </u></a></p>
+    </div>
+</section>
+
+
+<!-- heritage section -->
+ 
+
+<section class="slideshow-section">
+    <h2>Know our desi cows</h2>
+    <div class="slideshow-container">
+        <img id="breed-image" src="images/gir.jpg" alt="Cow Breed">
+        <p id="breed-name">Gir</p>
+    </div>
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+</section>
+
+<section class="awareness-section">
+    <h1>Smart Breeding & Indian Cow Revival</h1>
+    <p>
+        Reviving native Indian cow breeds through smart breeding programs is crucial for sustainable dairy farming, biodiversity, and organic farming. 
+        Indigenous breeds like **Gir, Sahiwal, Red Sindhi, Tharparkar, and Kankrej** are resilient, produce high-quality milk, and support ecological balance.
+    </p>
+    <button id="awareness-btn">Join the Awareness Movement</button>
+    <p id="counter">People Engaged: <span id="count">0</span></p>
+</section>
+
+<script src="script.js"></script>
+
+
+
+
+
+
+
+ 
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact"  style="border: 5px solid rgb(25, 59, 59)";>
+        <div class="container">
+            <h2 class="section-title">Get Involved</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">How would you like to help?</label>
+                        <select id="interest" class="form-control">
+                            <option value="">Select an option</option>
+                            <option value="volunteer">Volunteer</option>
+                            <option value="donate">Donate</option>
+                            <option value="partner">Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-brand">Gaumitra</a>
+                    <p>Preserving India's indigenous cow breeds for future generations.</p>
+                </div>
+                <div class="footer-nav">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#breeds">Breeds</a></li>
+                        <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@gaumitra.org</p>
+                    <p>Phone: +91 9876543210</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Gaumitra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        $(document).ready(function(){
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+            
+            // Form submission
+            $('form').submit(function(e) {
+                e.preventDefault();
+                alert('Thank you for your interest! We will get back to you soon.');
+                this.reset();
+            });
+            
+            // Add animation to breed cards on scroll
+            $(window).scroll(function() {
+                $('.breed-card').each(function() {
+                    var cardPosition = $(this).offset().top;
+                    var scrollPosition = $(window).scrollTop() + $(window).height();
+                    
+                    if (scrollPosition > cardPosition) {
+                        $(this).addClass('animate');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    </div>
+</body>
+</html>
