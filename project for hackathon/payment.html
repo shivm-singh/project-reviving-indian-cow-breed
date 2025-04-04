@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>payment window</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        body {
+            background-image: url('image.jpeg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #4B3D3D;
+            margin: 0;
+            padding: 20px;
+            background-size: 110%;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: rgb(246,252,252);
+        }
+        h2 {
+            text-align: center;
+            border: 2px double #ccc;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .header-img {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header-img img {
+            height: 50px;
+            width: 50px;
+        }
+        table {
+            margin: 50px auto;
+            background-color: rgba(255, 228, 196, 0.9);
+            border-collapse: collapse;
+            width: 50%;
+            border-radius: 8px;
+        }
+        th {
+            background-color: #f2c94c;
+            color: #5A3E36;
+            padding: 8px;
+            text-align: center;
+        }
+        td {
+            padding: 10px;
+        }
+        input[type="text"], input[type="number"], input[type="email"], input[type="tel"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin: 0 5px;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: auto;
+        }
+        footer a {
+            color: #f2c94c;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            table {
+                width: 90%;
+                font-size: 14px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            button {
+                width: 100%;
+                margin: 5px 0;
+            }
+            footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-img">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9mu1fLIEj09sId170dCZw3EqMl0VXTUUDA&s" alt="Scholarship Logo">
+    </div>
+    
+    <h2>Payment Gateway</h2>
+
+    <form id="paymentForm" action="verify.html" method="get" onsubmit="return validateForm()">
+        <table border="1">
+            <tr>
+                <th colspan="2">Method Of Payment</th>
+            </tr>
+            <tr>
+                <td><label for="card_name">Card Payment</label></td>
+                <td>
+                    <input type="text" id="card_name" name="card_name" placeholder="Name on card" required>
+                    <input type="number" id="card_number" name="card_number" placeholder="Card Number" required>
+                    <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="upi">UPI</label></td>
+                <td>
+                    <input type="radio" name="payment_method" value="BHIM UPI" required> BHIM UPI<br>
+                    <input type="radio" name="payment_method" value="Amazon Pay"> Amazon Pay<br>
+                    <input type="radio" name="payment_method" value="Google Pay" required> Google Pay<br>
+                    <input type="radio" name="payment_method" value="Phone Pay"> Phone Pay
+                </td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone Number</label></td>
+                <td><input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" id="email" name="email" placeholder="Enter your email" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                  
+                    <button type="submit" class="btn btn-success">Pay Now</button> 
+                    <button type="button" class="btn btn-danger" onclick="cancelPayment()">Cancel</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <footer>
+        <p>Contact us: 9580854598, 8756291902</p>
+        <p>Email: <a href="mailto:shrivastavayush2005@gmail.com">shrivastavayush2005@gmail.com</a></p>
+        <p>Address: Gorakhpur, Uttar Pradesh</p>
+    </footer>
+
+    <script>
+        
+        function adjustLayout() {
+            if (window.innerWidth <= 600) {
+                document.querySelector('table').style.width = '90%'; 
+                document.querySelector('h2').style.fontSize = '24px';  
+            } else {
+                document.querySelector('table').style.width = '50%';  
+                document.querySelector('h2').style.fontSize = '32px'; 
+            }
+        }
+
+       
+        window.addEventListener('resize', adjustLayout);
+
+       
+        window.onload = adjustLayout;
+
+        
+        function cancelPayment() {
+            if (confirm('Are you sure you want to cancel?')) {
+                window.location.href = '/'; 
+            }
+        }
+
+      
+        function validateForm() {
+            var form = document.getElementById('paymentForm');
+            var isValid = true;
+            var errorMessage = "";
+
+            
+            var requiredFields = form.querySelectorAll('[required]');
+            requiredFields.forEach(function(field) {
+                if (!field.value) {
+                    isValid = false;
+                    errorMessage = "Please fill out all required fields!";
+                    field.style.borderColor = "red";  
+                } else {
+                    field.style.borderColor = ""; 
+                }
+            });
+
+           
+            var email = document.getElementById('email').value;
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!email.match(emailPattern)) {
+                isValid = false;
+                errorMessage = "Please enter a valid email address!";
+                document.getElementById('email').style.borderColor = "red";  
+            }
+
+           
+            if (isValid) {
+                return true;  
+            } else {
+                alert(errorMessage); 
+                return false; 
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reviving Indigenous Indian Cow Breeds | Gaumitra</title>
+    <meta name="description" content="Gaumitra promotes sustainable practices for indigenous cow breeds through technology and awareness.">
+    <meta property="og:title" content="Reviving Indigenous Indian Cow Breeds | Gaumitra" />
+    <meta property="og:description" content="Gaumitra promotes sustainable practices for indigenous cow breeds through technology and awareness." />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #32aa27;
+            --primary-dark: #26801d;
+            --primary-light: #41d034;
+            --dark-color: #162415;
+            --darker-color: #020402;
+            --light-color: #fff;
+            --text-color: #595959;
+            --border-color: #6e6b6b;
+            --error-color: #ec6366;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--text-color);
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light-color);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--darker-color);
+            text-decoration: none;
+        }
+        
+        .brand:hover {
+            color: var(--darker-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #eef1ef;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--darker-color);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: var(--light-color);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--darker-color);
+            border-color: var(--darker-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--light-color);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--light-color);
+    
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--darker-color);
+        }
+        
+        .about-content {
+            display: flex;
+            text-align: justify;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        /* Breeds Section */
+        .breeds {
+            padding: 80px 0;
+            background-color: #eef1ef;
+        }
+        
+        .breeds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .breed-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .breed-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .breed-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .breed-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .breed-card:hover .breed-image img {
+            transform: scale(1.1);
+        }
+        
+        .breed-info {
+            padding: 20px;
+        }
+        
+        .breed-info h3 {
+            margin-bottom: 10px;
+            color: var(--darker-color);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            background-color: var(--light-color);
+            margin-left: 150px;
+margin-right: 150px;
+margin-bottom: 10px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand {
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--light-color);
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-nav ul {
+            list-style: none;
+        }
+        
+        .footer-nav ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
+        
+        .footer-nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, .about-image {
+                flex: none;
+                width: 100%;
+            }
+            
+            .about-image {
+                margin-top: 30px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .brand {
+                margin-bottom: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-nav {
+                margin-top: 30px;
+            }
+        }
+    </style>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="brand">Gaumitra</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#breeds">Breeds</a></li>
+                    <li><a href="cowbreed.html">Why Matters</a></li>
+                     <li><a href="#products">Product</a></li> 
+                     <li><a href="Mang.html">Manage</a></li> 
+
+                    <li><a href="./mission.html">Our Mission</a></li> 
+                    <li><a href="chat.html">Chatbot</a></li> 
+ 
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" >
+        <div class="container">
+            <h1>Reviving Indigenous Indian Cow Breeds</h1>
+            <p>Gaumitra promotes sustainable practices for indigenous cow breeds through technology and awareness.</p>
+            <a href="#about" class="btn btn-primary">Learn More</a>
+            <a href="#contact" class="btn btn-secondary">Get Involved</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Indigenous Cow Breeds</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>India is home to some of the most diverse and resilient indigenous cow breeds in the world. These breeds have evolved over centuries to thrive in local conditions and play a vital role in sustainable agriculture.</p>
+                    <p>However, many of these native breeds are now endangered due to the increasing popularity of exotic breeds and changing agricultural practices.</p>
+                    <p>At Gaumitra, we're committed to preserving these genetic treasures through conservation efforts, research, and community engagement.</p>
+                    <p><a href="#contact"><u><center>Get in touch </center> </u></a></p>
+
+                </div>
+ 
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Indigenous Indian cow">
+                </div>
+            </div>
+ 
+        </div>
+ 
+    </section>
+
+     <!-- Breeds Section -->
+    <section id="breeds" class="breeds">
+        <div class="container">
+            <h2 class="section-title">Our Native Breeds</h2>
+            <div class="breeds-grid">
+                <div class="breed-card">
+                    <div class="breed-image">
+                        <img src="https://th.bing.com/th/id/OIP.zeWe966tdpYhRHFUCXgp4AHaE6?w=305&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Gir cow">
+                    </div>
+                    <div class="breed-info">
+                        <h3>Gir</h3>
+                        <p>Originating from Gujarat, the Gir is known for its tolerance to stressful conditions and high milk production.</p>
+                        <a href='payment.html' class="btn btn-primary">Buy Now</a>
+
+                    </div>
+                </div>
+                
+                <div class="breed-card">
+                    <div class="breed-image">
+                        <img src="data:image/webp;base64,UklGRjZGAABXRUJQVlA4ICpGAABQDAGdASo4ATgBPt1Yok4opSMpNtvNuSAbiUAZN53FXJpNSc5Y/dliD6N95/5/W1uN/D+BX9x/kP/j1z/5XfT+yeIvix2RYCO8fm1/YlCRlj0B/KT/9/Ll/Cf+797fgb/tX/R68bjRZ4bbHPQpTZ27ZZ6/m5gYTJOWHGTvCbsahflVyg+lKxujS9sn7vmn+jQi7Qt/4Zaj02e6wVH6JpT5r2E/+P/nWmfR8tcx5nbKcuOwG2oU9mLbjS6hEdVie0rvyCM/jJhPCW4+uuNSHW6UHr9njAV7gejBMJSRqNThbkYZhMQItUpArTtTnkI0TVShspeJBLQyNiD4nfAcUBKAQS6AbRAQRjo8RJVRzjt8MShpulxVno/rGS1mrfSOXkij4yrz9khuAaE4HuQ+/i43z9LrPsipxJBHulXT90cM4FL7U7zvHG1ePGyTLxp4VbWf4v/5IjUUv8DOvUDGQy4vH5zGUqo0EajsGMSLyCOalD2dWF3ZUtEA3mdljhs6HZ5ONNqhefYlV89TXY0jyR1BtVtz7DYVPpujm9cLTkP2U/4o2GMA5xw8nA6w8P/Xj5/ua0jr+6HgWOdIlXOQ9RYyExiQBCn3sFv5WPQZH3U78ZOFrjjozTVPmERqf6aQowKy3kc9qWOLEcd7eGbH6NjSRxK/USghKpgY0SUHxaIoTGpo4G//iKSLopJdqwYoJyfL/YQITyrmP/V7dvA7Dc1oJhScUxxVFxW4WIHszZ4mldH6phBnYAfDw9fLvL/VFMsDMHhvdPSmEhFlZSch3h27MZOyGANy5cmOsOaMWbtDHWNDFRd+11YTNIbVSKNQJB0Lj/qfZpdzWQXY37Xi296lBae4gKzIBZ8gxtUmkY2GwSSNaN15zSH3UAX/sFI69TKnMF5m0sG89sqOyjUZYG+ujh4Si5Et+3cs5m8NukZFX84wERO2oZq8aNqC2LGajzSn0ZZVTF/rg13B6QkbttY5FKiSk/suR7O6SUl3Gj28ioq4NtLGTR+oBeimQlTe7GdMWXdzhvaCo+t75Oj16Jn2GLBuLYyjUykfC3MuCmmUySVnO1tdIHTI4XvM1o/dcOvH+OSjL6kbTczQlfnc4xb6B5Pr3c/VZVvMhjnkaSM3BrBZ28qbLW1C4i+jtqbGSLXfXPbgeu5QZj1vUyagWsbf76nuXoltnaQbg/lWyZrH8D6WcZySn7lAjTtq3eE7MRqYITZmbFp2RUmFxvP9XUFh91XY/1iXn76OiRUdXgEkdvRG9IOLdWxxxJF8MZHw4ivGDvLsePWFjMYoMhCV3BscOMd5V5LZhPWz7HxqGk/ZLgl9lfO7wiikCkMEybJ74mntvNFeqbW0ueSr0WydgzcIIUvjYdojnwC7GOGLzchMBFI/4JYVZ9lt+i4ylSKn5sP4Sa6qXIneiZbrQ1PHCA/NZbCQvGh3CKkv6gKtuskpmx1t9tnuOD0zXtVShLyeN/Zrhp0L4rH3RPRMPIR+M9DVzutg87diG8mkYQg0D7qatb2K4ERTpdCQfZWDadqapd88Btf5aY0vXzw4s6BuH6szy/RYvuu+4q3ClVnCIwu9o9sQUglnoqKiQQMoZpxfbN2DZ6pIScA4CQb9qze/yWsA/aCCCuycubV2I6kzawRCydMy4JEgkpXIH04ro12afwuXbaNmXHwF8MGcjPdPRzoEawK4zu6CpuuvvyH+NWH9zmgD+Wfaq8yGDpKwgn1n8oias6ONMdbaAmDwUJHLyM4sfwfusv59Mfw4eeLrBvq39dWJZ0lJx+/P1YzvOXa0f1Wh1eap1F9XFAHnEUAf2h6io/L00jIup9gM7Ps0vsassiA9HBnudu1HL3HeYUKi2TuvuuOt3Na/d//7i6qtoGJQv8DbW49QBUFbenXLWbBLidpJciq+1gGZUc3yXWRkHrXBjYMhvKXcczkPM/Z9nmQi1fEpHlg8eto0eC4JzXBsFpZNcpzdM5oCai3mUUsWMX2w2Tx0R/mJNCRLK5Lyt5t6JvTD/rcYpj1E5YcMpddH2Gj+v2BF47brbGEgvCiR4Mjs86oC8NqHRqcfGGK4a48Y+23GnxqS5ZkXeOutp0CFdMMNxQZxUcWj4IosIhDNoOKmUieDTgYTe3Kvv1Tm3d5rVGmXytMA1RZqLtJfzPesj+8F3k5sA+Mrw6P32qlxSXtJyqL+PsBAZZ1D1VvbuXAKHsAPVbJIUVeYQjKn19158MNofcDsRav58zY1OFqcl34oBSJQBVZcU0INFC7ymRh4nElXzBBLNp6pKt4ieh43M4TfJBid5cb8KOHwHIoGsRNG6BRnAEnvSE6VJSemoPe1c6lIuoeIY1kEltXBAc+CH/GT/sljciTnO7KkpwjsrmO9MKQVZb1T3Xcvyp/keoQ9lREyfW99pNobA6HIqNswceL6wTYbRlahW/dE+///+S5ciGghvt4vGBCYViKC6s++JLrlV+7GwYcAG5/GzxJm4MnEBcHFwA/O4XKBLT6i1zln8sPZCYOxFDIpHPimuxy8YyKFcUaApZcbDmshPuGqIpuh2MFyiAGiq4nByNM7fJ+sklKg7QKi9gzMqsYS9PsVD23qNvu8A92oXuxalfkeXedJ/xWSC/IZA8f17ucQZ8Gyy1EkYRXNLawAncIyHS+thxZpt4sUACHn/PF7ZuoM+aHmVmFmTo/nA1DILRhR82/8HfyyHYPDhVlOxDtkpgvrOUP5Rhn1lEeb9RIwJflfIBwAY1yvgERih0K4B5ODvC35toqguJdsgusN4TxDXoXKkjgco6xbuaH/wXvEMosbATQeArebiFDR9u9ecqmcU5DxIsInkj3HByFW8FaJ56D9ALl3tJLuIfGRgCv5uoCzqTiVtXEZAQD+mVUAAP76LZzyhiQKcLVpjFjuuRt1Y8tDIE79NkFzZZCAwmemRJcDIMiDPuW01dPbYPbkQFp4b52QqFPn4wIK9/PWo9EyNslZmk2+J/i7VrDheMhC1UWF156HEObQwDjIMKMXgD5YvTx067RUqPil9Fa+GLR1XI6Je79/ArynfvzFsA0AkAFIxSyM6bmT04OP+WdYnwZRgMadVaRtnobaP5z6VQIkldixOWTx44pMt4j3R6u9+Jx2YYE/T7VCG1BVyDX69fmJDboyVqCjBnN8JuGyw+bkprWJWUJS93VEjHsjieJBWJ/pWofvaJ9cF0Y7EJxikTmtrdvO8R3FRkB/JQnkZybLRnlmmrazCcBheZNdErOjJAdvBmaXaJPHnlppx0OtxfVU0W+lui1ee7pjzA5Qm/KspgW9UUrXd87a39UYw6aSS5gEdQQvGTl+MizRSkuWa/eywpEkyJTlk/7n3ZqdBSdbgYVMc7idKN5pU8PKLIfwVoOUR1bGMtPBqE21H98KXRnkzqMFMa+tVM26l88fY51j30MsalI34944m8G9JgNbJvBDDXsLc1fQmPhtCiWnXy2cizVBXwu8yhJICGOttua4L5ciWDcVAF/d+IsRtlTk0qsxei2+mm1xaGE6auzQeWEsy7CC4sPl7xhdfr+ZxIYlZLvVvLprKVUVaveRQk5158skAjnI8DWmirSy4+V7raiXO4smHvmGoQ6af2DTSL1gnsZ/B29GhzAdhHiX1u+Ng3/fJcdDiGmRo6bEnuBSr6O3V8h2Vcsz1LDXHtkBARqKmcV4X0khDSGIm4QUddh2GiRxZI7DviJZF4O1vXDj9hEm0wb7wioNxtg5XSSkJTwEh3viyagqTRaCjcjKdue8OTzTLbC00GRFZunu/hHOpnI2OeRmpS08HRlw0/x8KFhKiUpBHuw7xwYixhPgn8Aaz4k0bglzB6dUemXFkWeBM2TNPib82WIMNGyLXtV2WAQNzSTyJS2CVFe8NHs7A2lF+oThW+S2daFifTUk6ouFJDBPIKifIU+7UAwHRMkgxLQRN2aRieRGeGRMosE0epbmHjBtc5i+oyIYBh/BVkZkCMSnpbpzOrawbu1h7dpBxN1+VLqdw/wH7fFsOn+QAtHuCRviViJDeEFn8DnOwCs9Uer7Y0/5ar5qQaSj1EkSp8D7F1CWHpL/KiSMG8TVGDrlTkhSP2lgl91ASiVq6cDKa/baH/1Y6ylUESzZEPcyYwMM0jNZY66GJB21xk5YrEKpVVQxrh8GOE523DMZ4YXjJjXsStxxB/hja5xeoJCQ7H4W3yk9hn09SKasqzvWLZMw33VZ1jYemvugu3goA+bcXxdgwoT9jNrmIXbjk32ddJwmhsZM4bxhBDaxRrXOrn00hY5OVqLLKX2EQSsDEh9d6Lzrf2us4mOj2kLNSHU8qTpxp7Blp3DETuhIgTpNss4tEuIulfCPmZpxLXyuYywIIDD9GPOD0YTSfxfDrId0cWdp4KTMx6DmYwQHQsysodLnnEfsxohDkD8PjmPwG5x8PcCU9Ny6H62N0SRzoShMUwdLGifskhc/fUCHNBiDzb1E2qiEKpl7sBPQnEryuU/oARw++YZiKuHaVzVBPn1wQk9i72uoEu7739GFwuxA3GDtRYaNjQW2oXx+6l6/FJPPY2Z4m1oPlJzWqCZ89RFhoglgltpg/8O2A/2/NQbJfD+HTomhw0WI8J6QllmsDninhJVoZmH2X1MPmz5TSFnqWVXegMiSdNEwmoCmrTVOCIvWPDFgOWSUrv/bJj5vnKpoT0/o0eWTIW8sxeua8gql73X+S1+XkKnox7nRLfoadTGve2MTiBSDyzOM+pUiybpj6w9nRi60UDomJSKP+tUuGIHjF0SS3BmQeYHpqxHEz32uSAwnEFnkvbA+bIRdH6Nt7PxsH7i9BvgJiRzoxwL9IL7S/S7QbkqLJ+9tgpxVzqXBs+mVXITZIRNqOLx1hKX3VLs6JrVv0y8WhG/IeTMtaGgwtS2wrCGK+JAzJv9sne8sejbJcbEOydkNDXPBu2/uQEPWii72yH2c4K+mpO2Ne8lgBJn6YPn5o521ciljqdXeda0h1GoxD1tLk3EWOls2sdUMVIJUZ/xMghukfu0FuRGpFR83jlXF1Uc6kbEEbenCR0Qml1Ph/cEAIpxiCC6z+qiM+iVfykl0lJzCNFyGHB1sMNerz8h3q++5Fx6f8GvY5QeDmF6lt1wch3f32/CdQ5wUaODlYJgtvhs7p1vXv+kh+JjzmSC8Y0cpOUGsNjwz1WqXxa0JoenXWZLIG5GlkYuvtVvDqB5UGVC5OH8jwHwbhUCt34bdGmt7cKELTK2hIhkOY75nhCuRg7/SvOGT2Si+W5Mk5epl39aITnw4OAQfB01CjO90/Ap5QgzNnHeMj8IZmDRAdwkT7f6dqicOPwBMSAhbeSpYnlqAiLlXoCawub9jsvlOKABnBSBNDe7foyWcftm5IMNWqVS67qtyWPIl7sHKgOSTUAGnph+f+KbNNivm5CJdWRJ7OD+ndZTPGxdAhDjc7zpCIYQycyQABm6vi8bdUVgPXWLHs6h/2Yp7LR90KiYmxs/+DIvM/TqHiiCwpKId14MrBqsF4w64mQMXTdN39jG1Jxfk7rLE+3KbG5rOIjHe8pml2avmT+cyEAAqkfUswFo9UdV6Bh8dsSGaY1IMapZ9F4ndCfNMh2N1L2Tm04xxX96fyUn1n3PpFZZ5WfOhB2woDzLt3gfAYn/OjRv0Y4GzbWQH77uz8KVH2pwI3tupY9ucEwiPU7UUjStHP6cvkA9E+1WuDOQlyBJImginyRKoleith0zR08j7FvMWABRgbIm+GKhf5kBW+APiER0f32g5lxsNr8ncq43Z/jWhib7EDDvAPfI1IlixWaCgt0db1ypx/4DmU1wGprHYT9ebSdqvnthgbPBjbS9wskDPeGTA96FdSbmBtm3vC77E5lmKpAKW2lK9ni36qvKQ7k5ln3mGnWmceADBTvGmb3mH+6YMaM6x2WwcGbGRMcg5qam+by0NFYzLy8aHcjLrHiVOD2JPPsFLnbUv3WHvPlrIdmsM0wI5YbvQBL39wYUeTn7oiAlMxccTTksvTOAILoZCrVwDXl/wFoN3J4kLo2AqjD6HyKt4Y6c2PwUPpREssrAGNO/1QBbMUo0xeLOy9qgLXtcNYjw4N5cWhIwpjbAoVwnmvCynyWeQF++4Gyo5dCSVDkfPGuDsWhVaFSmCa33ck1JTac4HdyPVCXF9uVcnRjvjaR8Ku6h6Y00c3QnDFR689C7SXV3ztGGB321FQFPxAXRX/mUeAi/roCHuTv5DH7Bopu1fH3x5S1PPfqIfvpI091OY7z73e9Pb1RGhrschfRFCOju25GQUasg4PTxX09TDrz+I7glDssqGLFylEoguejrSIVBAL1LgXBbPAzP+NowYveffVzjg9C/k2283gS8lSUxcj5mdpZpHBIlf76appb0r9uXRajintDb9gkVEScf6S33A2uOU6qx9eyP+M/wI/lPpJSqA02ZRit+bNvtNbPqyB78rITp+AX1uTcmXcr0UaP63NnWQcH74bTdUcFtrZMp8Rl785XhaZ7s01krnb561H5ft+cH7aAotViocw66QpEmvFQp1jyTmwddxFTtmm3W88Lx3OF9QNQxSHC3AinDzA5vm0r/1Fkk2NgqaIVhntDs92oaSKDXAyjwoa0wA9AKxppxr2oUJZJG3LHPxyLLTzhQn1Fyu3nFKWhuFNEsABgdBDKgSgfqSS/bBzB9Q2iCtDsZWhIAQ4v22kMF6JwpykBqpzRQxKPEzlhhcOwgPOnoDHWto3SbvGnf29Mj4I+n9wUrmJO6Y74rKx1bINteI/RjJXI22HRGDcQKwUZwJ65hkclIbMdwSDh29l1n8xb6WdX0Hh8yTFj91O7KeX8vTt1bifzGn5qQiUTTtAZziv1BUe6iO5tLBoXYyzAGXjSJudv3NMLgom8QjFn3GSCWwscDTE6jKK7J10e+qfQB7mKD71zsPq3EyMh4RX88cs5dADXgKjvyrP5pI9v8Zl338hD6aaOiKHxmus1bDZnRfO4zO3p4LZjsGucmCksMy205gJ7S+CpllEArYUnoC0EQavDHVsI5jeBnZhQQyJsSZ89CTzImBh//UMX2ibxyEgJqUWhl0HeaKHtaCx+sBbz8diTHFkyrnVzuJDCYpIuXgX1vGygCRQbHWqJ1WVupTEZZxXZfRBBCA7muy3F+3CcynP+7sh1cjRBUEer+GRcky3wsx/xO67BBfgxfy4UyH8MqscqRydNC65n/MXNeVwMA1PDK+AX7gUzMpe0VlxgZ5OikvJ4NXytYZcGmA3BKNuzmEQbql0t2SRGyyd7rewNrUWr1eF8jM09scNiVVaZlJ0KYp0Q+0lNI89nYYag5GwSYZKPeN8AgDdNAMN4FqB0j2ST91vJKU3pEtVPAFgkmj3o8sjld7YvkfbSmrsvrWtG7yTP9Rw0qlFgdwyiQXGg6rGFjRbJitsQR71ht+CGDAVjtuzlSw9+i3an00GDGik7LJDge2Hpym5XXZS7m/3lTD7Ewp0GdiE76/++kSwm9GZTOTGlMvK1/abvH1aT1kweOqEBnEb8NstLIUpN2CRLZErjzi6eNlvir9JrMj1Ntcr+i/lRDVdbxUOwuH7z8MTa4o2E1IiVv1OUAKpOFLq8EuyZpDB6F0F+75qZK1OTFq/rWTgxiMRVvkM+OKhgaVpv6i5ObDnu+Hs3AFB2juHgxAp20yM7WwuzR3sf4n6eUXVQ/kwHStJSXSPA+ZIeyrn5Xw6FSXqRuG1YMucpvVJ+Zy3n5a+gq27zjXYDqd35XcQoXcGjZjihsaec0KlZUYmjwP2IWxuRo6bhmMtFJ5SOwDV5tHaNFV/Jko+dr0fwudhaBhenRuq9OKi5TFzM8DH+AR8+ezQGCfoIclPlRhyGLtlEow1yHDuNMjFH58vPN2MP39kciWcnExL2Jfh5s1PvuX8/XQtq+7ifmyCEmxjTXBMuZCk2aaw7IQyEGsvf4FDezzlEdvZv/pVFxcIfw8oG7iyi1QlHRm5DNZNUN8p6xHbXA4TJ2M4E+DyWe0dJ3YbNBrNX93p01KRvuQqX78PWAv/fBxdzm5EgvtD9k7mSgFDge12nCaZNfm0FllqF70Fbj4umxvkxzmdhmgR3ILj/O1VxCnqY/7+RvgPFXp6sDRfcq3EmcY/em2MG1YfrChs4qmo3eEYGAJmXBdMKANHjvw0SPteZrviXLfMrxCR3hW3UqQt3/GL8AyzHVBY+9wC0cN1Qc0zQ8xYCrD2xLK7MDx0fONu1E30ldCFeMovWxFUtIo8wLCTIGGrUhOENdo6Ml8WzQieVKBSn/uQhmLkslx+qYkJDTNGbdon5R6l4Tnn4P7EIQeE9ihOzNhj/cA3RoorLIP+n1DmKXUueMWVOHH8bZYsOZV3yeJg9S7u6ECr5RI5cxz9U1ppzcdyMLNxZelbR7NecelPLV+DmCheuXx7wVYrKYcrNVBAYc3VVdDrRlSIH/EFYToLMkbw2t3lAEY3cS+4aaLNSszxg9KZIycpFaOTbxMq01lrfO8lNIeMhz1fIYyGj9RG5UKtmptZ/mqqWNWU7mjH5HLIfTwJwsMv5AOeiHqip1rmGDC6q+wacC/64ls4bQUc17K/1s/qh+u3AtegLSPAq7dK6dTL2rOpHmMaj746njhREeCtoPCw2VzX6+e5ZznoMdC/DPVTNKxo+V6mdbVflHbxX9APbyvoXmEViejnTmb9GSHVJhq47Rs3QUIqvU+x4Rm6HkF7cyzp0eyVFhs0DypSkGCQvS3/FA6hUlpKIaFE6LcTY2jQd5vk3y0HQkSJzF6PWV6nqFue4mvlCSKPyaL7k5ubchkrPWWyGJLahH/li8dkIvDSxAFfBnVPGc4HQRIxUP6qTZtCrN+GsA4rnHiQ7YxPnmZWR8o1An3cXZtIk92w4D7CbCBESGjgbOzYrxSZr0RhkRS4oQMFaq7nZaTFkmaZao/rGTEVeeRYWzCxKQuiBCYVbP3AFRf6u3jpo356wCIwL2CHl1VPQ/zWTfZDPshtTgaFddv6nsHmSu/z7L1W0rONMiwdMm1JBTRV0mHMic3B8JbE+fEYhJoiqVUAWg+eRGtUQqJOeuMP0MF1S4Q7PWQV/AfVlHie8AMtC7KTyqVJ0F38tERYV7DYJQNXxYdcEFJAawqYxVfthycJqP9681HkcnbjBeqJSGbT0S0zPK/jsvheKS7GQB4Kx3oPcodShoSYYT1XnFiQ82OCOu4bWJB4MBz8CRJI0FSQAbtkhnO/7h9TlXsNnApit9v5p4iMI8lq2bujcNWJL3Ehlc1lNvQE6KA1PMmaNilOaLb6VMWWgQdzpp+8gEGWJyQIevq3/msezlD4qrZR8pocF+ACKiZlPl04Y9oaZ2O3ZN+ShKSkHZEjxsYVq2ito6T9zI0bJVNZbPSbEFtU8VUnNMvy2vAimVtCzzMoQjSwG92fosUmKgOefDYLTjo/NoEbDevGNtPw+L1wrUiVWXlJC4zKmbbqf9gyWkJMK0KUE4E7YIclpINVVGTuRHoScgRG0SyvlQBtawzV76DC94986ux+DPVNU7BdxfHe5rhdSTNskGJ3pucQ0fZxBm6ZgAqfrmGxgeFqH2edjySxqMuBz8Ue8WuSwwNMkitRqvwYEQuSYel8q5waq4/kIYmSf/J0Epv+R7L0ZJEP9FbWY4JQy7I+XDOxI7ROTivaZ0kwu9qJznBjQN5e9g3d/a0oMKujpEh7EQbQrf8Y4MASr2bErcnP+RJcsWowcthNGJ09Z8JnqCfNqd+J5sBj9S27elZBtbsCquIsq0h65W2J1aeXqkedGkRbn6gZmgidCCg6j/yxdxFS0wEa6qDU7QCbR+q5z3cbZrPVOyG93iDWTQ/di3Jk/HtKs4C394WpPXpeK5KyREkEyIejCKY+O5lbj5+UAqO5aefoJFhVuHjVDwr5gAc8bHkd0CSNvRu7/FTmnv0pKKV9iwGSOG/eTkWQPp4U+T1HkDv5w8b9TrwGmZa0MGkDdpL/wX1gGJJe8dGk5wPhtCRXwNuAbYcPHTR/xZ88fLmHA2hof5tyzc++c72ZGQLcEeORlPB9UNDTz/WwTQ0c7jgvxNYxZEzV3XXXWS8XHA1pffc8wza3GXcidyESM/U+xna7JFXP1h7CsuUjEL/g1Mxrx73vnsK92Li5obmRILLPxpSt6dfjDxaYqN/yGnbSzfLreR5xYmx0N8q6+gGm3U5h41YnAPxnSHxdNRC6UAqTC2ot5XbaUTmo7KJhVCaNG/RBdT3V0ZOJWl+F1mJbgUYuh/ZcoLgS7wN+RhV0S1W7/YXYCOOcccfe3NAMSQ6jRQ3Pa6AU8ET2+xUtiskXRj4fMxU5fyt4TWD0M3Uu4nJpR1saIcQXMfNROcRDx6xE7FmuGPorNZoMyXxunwIrmRcx0hs2alWljjg9adaScVz2jM5BjoowLdvKBl2l9FNDSIolLAj7Ucz44UoBEIqqIAaNB+YOG4oTgc7SjKmQ6rfaTup381gGYiwgyOyZ9BCpd+oGUKDAoI7xNWuBEQRQvRuqKMCjm6t99li+RrQCq7KRfEmXnlyV9hQy2wXEqZO3miv7foOmS93wLRXaybIYmz1iPzNGsPVPfDOdmgPXlCQHnNaTCInxU/EdNmX7dmPTruZq40pXEiIfbfL2G/eNyP/wu3h7QSiiR+9EYDuWs/9r7arniOn+nendC/lMG+u52dtJs59H6pOcGZw3B99ReWDQ8zxPo8uutHDZm+2wns1RgP50PQgVoAOzGDp3cA3DOKviOvudQ68Kz550CqZ2fahwdiq9aknHGgoAGg0yaCJJXTmlPfMXbaraaVZHP5SqlAedzDC0DyFy0elnTLj/GXu09hriFnKgrSVBgYmkVQ0QZ2WL3K4jy96tpCEMO1iT8QrU30LCiJQLzuIzJrimLNC2Tn9rQL9ytbaoQwRQgshtojuwG29bzDLIkkNDIYUKbSQdvLZhJxJC6Rcqo5SW/1hr40tDldNqfUeqquOTsIz/uKX5C5k5fDLkEZjd+g5q4QjL3MRLGuQPHGanwy/0RnJ1I5RVBT2K9foyCi6zz6LRI2zAFwtxHg10lWSE+SQihsMCWDXkfOZoYKvnVFuDEc0n0ZHh0KywKrCi5q6rO+LWEgPwekaNhsnJYIC1iLcWSlXTg4iy6dgMEg/eaU4Ek7ZEa6RI4+A+h0ne0Vch5A6HCvzEU2E8xT0CtsLqCQqLxnETM+zXELdjM5TFuBPBAQDXS9as6/LBwRK3Uh84Cno3f8NcXWdgEufVbiQSQy2WH4+L2yLMc37/nynwWXaWrqPLdil7jSQqMc0M/60xRF6Aq1+Y7b91gaU4tiJwNv2YsNKkdv75STiJgR8PBKpDvIROo/2eqq41W7F3coMisLNRdTJa6QAQvWiLuaLQbHGvHkl1PIr7HxXnqofvLhjV+Vesxi+FPORXKLOM9JWTKJjGZAYI9+L2MO0cWRbOxqI9MvnVyYg8cG89zTSFnQhhzCkWEpG0YvBARBm0KpR629uwu+Mw2YVQ3gH++Hjz9327AkdYOtOuAdjxX6kror3A5JO8xe1+gA7Y497caMmqE7VAWpjcBTI9T+BAZeh8OguTLDzJB/Iw/7N+O+Vfp77QwKLHEoXdvlPrkEo5fSVntvhBW8U7+A/qtvzNkiggDNSCNhnpZmFsreYiDOh+Ee2REv6w9w25o/qK04m3HuksltMydSYQ3QRq/a8RXud90gvTmqbPw6YEL30M9TZm9Tcg3Q2crEUMvtM6YATNlH4CglrFYYAUHCbn2PRpPBkKRYug0GsZJzYtXjYhnhOc1q6PtOYHI+uLznuKshbT8oq5BIX6G40/nhfxExuQHEr/cwmXCHvCHWmkLSKeJ15zGj5HBxDvS+pLidb0fi+bWyBrJ827fk9sHtHk+MOcTkrN1iVumr/zCxiCxXmsjUHlhmQY16lilvtIS4x0UwpAlQIURwBq50wI/uCUAKs/C23jLOA335Ogd4zc1MEsAAwnkGZRgKV0rFe5gCWSMgXLFDreVvFhF13GMhDUQcnJYkZ1a2K5z9xUgFHJSUi/hA4/jvILiiUoGYHaUySyDM6FA78JySSIEUS4FjEIerbslbZ2Rw8oCtkeNDXnw9CJht++PGWy/JqYSNgFi/VKd4YSOCwM2vGOtA8Op7XiB0uaE+ZBboIicIaGAjbJY3eMFkr5qI7lB3yo3suY++WWKuLPQX3qkNZBgBSejquNyDwNTM5zdARnEez4HsgVAvsUo83vrQAE2Z6kKMnYSOq67CIS+djPIQQmH0gEBk8QOUqb+8vXMdnjEgX03tmxI0Ea1SJQkk4ZEBAhR3Dgw+VU/g/SoGdPrAJQdAZYQSR8h7qcSV7tCHkez85ct14jdKqF7kQP11j9J84RPZW35RPYDKClDxsfjc+5N6KKT914hUZkshxKKb2vM3sSJlqle5SsGlzn0H7mTvrhpL3PFu/UU3Ttg+Uk3XgR5fGbvJFazLPIflpQItf0dmkKKQmm9TbHta5Xx3yA+7X5kpERCvF9kRU68km1SpB9UbLgQYZG7aN7WVf9QQ/mPijxAn1NxDHlo5bdtt/24OXuCpDT5YJ20KjdPFEUZrDxKB+xVNRmtkEnKTojUuJLSQzAhAC2cGWP07pWdPkV6dF/bfq6H89QqnPO58BZw5/Wo92vnjBxg14nFRynCpTlPDzyGyWvOpvZ/uQpHFlvKRpkOJHouzA2mlvRp4WbUag3Lch1BhHqPh2QPrKnnIgDesjzM3XqHWLF1yisaVzdZZ4aVjtOPqUBHPtkoqleu82uxQA1Uu+kjvLm9YmkcJPgBjaO++i/sUCha/JjA3radw5Tv/ndYpOS3F1EXJJUPZy3+/YctFjON1eAYRQj/Tq0YcitqYhVHG57jDLACWlbJ1H4ogZ/7b7lVKol/ncvAhXYUBuorOE6qtdtRyYft7LGQvL2wYxwVKzndQS2ZdoabA7hpeAmKmdS2MlQPAS8ZWEoz0fi+d+9JLAbnY8NLb0scWTVLyw3xetGmOXgGzfUzpFCgKA7GljTLIY4U5adt7HZKSEUFbtMpFyssh5vXR5aHV4gcsmVSCbDL4nW5auXPnluZAmuqFQQcvp01JLgL9xtmUOR6+uSg+iOvr0PWoH8gEaNPNIJN9vPJscWUvM5moh0UttVbuRCgjA+sHzfkIaJUr9yEzscPyJpXUsjSgTaLL+ajO7adkurFpBqVEOHCZePhSi25f8v+/gPBnrMLWPEkKJs7mtEs2MuIP4l7EPFkT8gDzb26z+wo6wJkNBMKA4y2iakf3tRhHXCHJ0SrzNNo9szjpPuMJp146MQtQM8JLzzYwx/WDaSVkhuNyOve2W7E+GST2/GX0VeqV6jZ459gK7jRmOPM6xyp1v6hH2W8WCc1VysFvJW0UHgX4XeJGmwsK+EYayasQqOjyaS1XLHZBwJij/5O9Fy22aK4eyKwrgyRgi9aEzlthVwwixzxHKDV7X/uRPgkb6rHrXpasAkyjqTCFrzP06+/4yGVqu6SFvT9vhwEau0dNIRODoT2tUi0avzXMKIzF8rDkEbuehSyDf55jnNwYkT0+gcWjZjl1QqFfrrWlislfqBLOtoqmSDVFIWyJPLb5gqA3WikajqAq5hQh4vz0mswDCgdKGZhJukoVKJzC+R2rOoniQyQRMDekmh2OlpDhM8X2VfHyyPMPN0ep/kKR6WFm/Q1/5nUvHPnMRZsfYfHRtzjJAjeJhDCS9NuzLp0pa6GwZm+lIjWU6chyRVH9+M9pyunpvmFW7Dgx9OX2Qo4eyzuhyswb4A5wDG7GOSmhOYRtS4n5LCXg5DDs59E5W6CqifIV7DWhtXE0nD43EMam1lM/cpXiTppYVyld6rR4HUcAdCdoF3eHn3iMqb9g9sRHlXIbeV2gzzdr7uoCINStWyda6NhURwYraywHiTXXQtCuGpjyba2RzU/kU0MHePpxPonYTRWHVOCEjAq+muVJhNBOsYEt5G8kZW1sCCnrjDdCSMgi/6jY7HcPNp3cc9Bz7XADcJiny9Max12KQ29jHR5Kqa0x4EWRYXaA8HKBI0paG54qlBknS7ZcuAgqd3I1XPvZnMpaO4vq9Co0KnrfZLcnandT6kWFMIdBhVu/KBAfl4Xn8ReDkmIakhzo4eF4ljfzhAdrnY86cQNwGhrLHJ5SH/vYVVJDYTQ1HqUGHUsSIJepuFdGI+7n8HA4k+n6lwCPjsOE8yI3MmaIBzqQX4afUhhGIwXRsNKkhyewlKE+mPiQ6WljKSE86PQ9JfpvJzdhE7ebAtdqcn/GmxGXzqRSlAZbvhJ8ABV2EOpBKrTfJJvv1Dknb6N9vuE1Ce72K41yiIgVjU3R4D7WdLO677jn8CFUhyIDk7Hf1rCwHsfQgcU9k40dSjjUyVYZGE/OjzxMMK6Kex54Rbuc6SShKGx2/oyNbHiLiiFkN1HQYbrAHGFLv+5V/wkhP2ntlBoV4eShrRidfdE8THwiyoG6TFzcyBHG+RkgpwKMuFTyQ6Y82ao9EKwP/5ZPA/mjVcTFjSj7Ve45lQRQqBCPrGh3zM6K7LldITQzUUj6wZMiCAs2xgQr4ThGAFke5bOEglW/ywmGrXy51zyF7FaOTqB+y6FwcwkGqldpikuNlu+S1JxT4yDBxIwtiePDMNjE2Ewp84X4cUl2/0nUmcnG/PHAiELdPWmulzD6GGtRdi+36jmL0tDD8iZ6on36005OXvx29sVh46tYKXAypu7wCCaEG8mLQqYU8Zvile62hH1KuLx83EWkauIEBrzzQep/uP4rFc7Aw8Qd0becyn5xKOk4vkjiU12B6jkTLNWsqWk6Q1iDUytUS5tq5F+9GUv7b+F/NtrG6tLFHHjDQofxOn0Lcg6al1eRXoSvQkLNK0xWxoHb+O4uiby7AtKSplOlx5Y0c4MQ23/R52DYgGBb1J/h6QawOeyB3e825hFqO5v7+PQjcyOlFIfXihQL3Yz/5g7RHRkiPEzqtcXhZrt03L2unkkxz9mcInY5FcxuzkFTLdLqSe/BkeAtJwUjNpgXXuScssoq0Awi3jQvCnrovEBjGCEsXat7QomJdcW2j3AatzwMwJUXpOVg/Q+v6PTFp8d8M1tK974p2PVeDo1SA9ndDW2Oe8vxmvKoPvqKUiLBQHMcE+JqNRD+6kKdnKaai98wYbGSnJVMyGMBEGb1dG0ESvcepfCoOljJL2UonafqlTzqMtl9bJmQ3xFbBwVsRnH2W/hKHMV3jK2YSByqRF8qO3EUAe9vgi9mvlgygvAKepRnFkBXamE+ozW8hXHDeaZZwPJrALg49HPHZ7Wm9S8xxgH70mApg/wCw/4kjK2rpyfQGg/XCOnH+UlIRQ5PN2MRW7h0HaHc2/Pj790WkxZTkvNLnBtERBeg/txcT0u/N0st0YeLeyQK7PQUum1G6g4LgZespXC7QUwmwI4KvxHfWrGG7qRV8Vg0oRM6mPcGOSeooOwniEP3SwiPUjqwYtU3c1uUj6hZf5EYHpnZXyG0fvtDm6IdJCkYnDDqtL/SW2oFrUwlXsY6XZODPJQ91KW5P+CuRWNePZnvOiXY0X6A4b1lMCLk9Jove4/kuAsmP+EEnXUViYQT6AlrggwKNQscbVuW0DUjEGwkBbeArP1OEz2426HhFWec/EQWUB3OBoHSfICz7m+XuTsDK1v6iOhh2mgeIZ/LuidpeC/1fp/kaWmnmgoWO3uCYOqSv+QvarN/sOiv0PLU6+3c68Afk1PTUHVUCG9QERESRpRWYsRi96jbE0mgjv9oAGJn9Ff9m7dBks2N/17lb5vageh+aNTdvTDv3rzQrR1gJaEIo+LyyZiBObI8NM1Ils+RZQcy/xcS3cKZwjQekIytamwNyi968fpXFV6j4opfPKCATV9Pw//47guz8gDipzTFL1/L5EUFkb+Bb2DrVxFpmoNRKkBy4QHP3jzrJdkfK7lObrUveSl/xyAKjZNvIldly91SRC765LcPCghS4wO83xcxUUuh0z1lYklFaG3QcV6NAMKNkCeGYsteNBFFlpTNTZgfYVtjhMCZafIpA17UZQiTzUJgQuJwR5vGsYgNAGdi9BkVd69J2c+YVCUs+Izx1r6EQ2LvduiSTbbPA3ov5TvsV+VnvtvIrQmznfqGlmu7ey5jGkkSBrIaXbhJIFKS6VCGqFDpF9r00j6zOl4SIJtmdZa5emEarWYRk6Ti/shYssuFVELcsx5f2cCYgEoM0fZj9FNmzuFumicqb6c+Ip8cyV++8BaVMJ8jM3V6i3LPOAJ4bM5BxHpWpkchT+a+dsQDU5ZWdiqCTgOG4KPA5I3Jm9doMgQa2Un3/VqBpWrbjBQFUoFcFdJutH3oUm6+489g9+NIKRIlcCrW9qn5VFcaT+od/cXliVofxEc1Cbs0wnIbkoEK1/2J67ngvILlqRJ1Wqp3z2aI4V5CBvBQexqzDN6AGXBxxLsgdE9KeJ0mhrTRu66MmlFayDNUKdm+GxGwBy42XtEUKCmhRP5ddSLmtN+ODjhhOd+/4t0WAs+ysoFB9vz5WOGnazQQrhs1yqOrcs1fAanXsMyo+FksLiUnICXLNFWyqoI+pnTcfP4tN78/ZrNHUEo6JbcboVu9/e8FF2CIFgOqvZET2yOe+Lm9GulwaYWTjPkbgIEMI9xZLagFvisJX6C8t0cZdYIZCDp/aBoOVqjtCdIb3A54URwLig84FEF38EiD15kr2+0M+Hcww9zC2T+bpdGYhitgm2PKdLNfQi6A4oNWi+Kb3AWhcAeg1ToW5/DwL+dmWvL9CtUGhm1d4bNpCE/Bv8pn1ohPBF1G4Q9bnGpSZzkv71BTfCLMoBQoSfHeWuBtWjqYjpcHWKWy9U2Ew1hGmyRy9nZa6fEAx5CPTD0EeFTdsC876RBQEynTTtBuzh/WNKSkfZno0lXSmvklufJ4CwZJZdXeXhCFlUbF4DWDwHjk/z5cPVdb1ZexqfrUVq8UvSsDwFnl8w+rfbQW/dJ2zNVScnwqbTonWRhxO5rZnkfS4RhXNpqcJheCk/osDRd/3AfzEqHex0pzdBM61JL8uW2bpcpybv5lNfugMgSUl4DJ5GBwgMNr/Qb2IWHx/eCgRTNtmBlx1iwmO3Q/Zu+4oPgzO6VVH6WuPHGA7yonvphKXFv1IWDlge/Fj7guq0NYJJ3Vm32pJFE3qr/j1bzEn4AAhL6o0P093yPXcIj8J2kuhZ2hnljFSiNPk4NuLr27Yy0VmfZMOx08iXZKAKvOwEC1UqoxwowWGJSTPwvOtz8aU1Hgk2P5BF++3wjchnaDaglDrY1u5UgmxRupa5NcBJ7I2852hIArUx0wbrw9MiTHilOQZPalgZc85pSMdluzCdXDsKXDS1cFvzUcBvw7uugEVJknkJ/6DAWIEBz+zeBv+CfrSzITO0cMl3R99waGOjenZ17ah4ZTNc46dZHKUrZKMyQ7ifOgBz4IOz8d9PIwgbVVL1zLmr8/LfTBG19f4/ONUEooV/5s6vNHva1nGP4oPvEvc5mMR6VMfvNnadbYg3641qnRyFaFeuwAmsCdaIb8vHV18tmDz6nwHC0CaZhxmZaAmxBEvFOHSOKbXwqP80oJEXHJwAw9kqO4Zujchy56jhHNnEw0Pjb5AuFZj5B6MPg4krvlaxh5Y381z5LKkKgpFAk+KovIvKRn4Eg4ZhJeO81b0MopyyuXswxJ6m2k4nvAR5ZBKjyjIxvqiY8wBKaE2afD5Vro9hWIbwjsVYWdiGXxwCyIxhx+lyLQ+x5sI+I4n/MqwZqwYbtXmIljPxeyL7KKg1xUDYFSFQoc07Rn3k6iSidHGOUa7aw0vPMnoCFUqp+L9AsRojTMvvE9FGERYOftOpuHurtAiJ2LfxBPMuEoX21W9b3/mD0Tlz4RLJxQavQvXfkALuHanZnB63lRizGzVJEHmy+lYBVJAtJ61hN+WWWmC6BhXD0W6nNwTWXwceEm9LhtkhIm2Fmqme50VmT29n1kS04tHkQhSOyIg/ysyhMb77neDt5+za4xDFPA2iMXq9G//SrF389SLZC0XfxHIugZ5VIe/J5cUd9DpOYslZlHwBVRDDKw0KxMSXWHQtSNl0hD6fc20bly3UxEmNZ9ZZA8kZBI1Ch3x2gt03k17j0yDNcBV5Uskehbcd4dhtBftWDeekj8G7KelCrg3khZeHRC43ZRDva4LLBaZSCSPlP06NsymNC06coGl2peRrA6frcHErdHfseHwvs5N5aI5mdSpBd24ibTI3IC+1pPm33dCbeoA+Fejw4nSsNwMwNMJkxcPGdHP6Oo2Ng5u9Mw7GD8cmTLVeTsOLJ/3noWNX3DUigPIV7V/5d8oRTAzBQ0bozi2nQPOuM2yDw8jB/rbpx7IzdqJP4h/cjrgkBNEBKw9rJ3Jc2btNsnQ/az94lY7L4T04Fi3MpnFwR8ppYJ+xDcbaSFwBpVJFGvc5YIm2JlcCiAZ719zAKx41yY03fB8R9Xp6thsq2Fzn0Lxl+QKeU3ajFdZ6DRGMpvOhG96Xkb3DrotheQDlKAXCG05A7+UjmkZw2B94XSzbEPxNaU1NB1LrzozOvH2sVmX7EzEAjZw8My1fa0ESPIultkZtrSI5wMkXgPUGeFiJcZHAaHWUWEJGARRfxt5lsmt/S9JCm44mNAlFtb/tk1LzIbfyYT79Gph3cLuRK85tpI3ogwD741xS2tBCwU1pgVbplP1c+HCQII70StLcQTKkLNDo4KCBV8L7WzOoGJ/v5CUfrJfEATfv37//vgGfP+tLYuSwDn8ZL56BG5ose7bRi+61Jf/n8PNVVP9Mrbsez2mgde9Qt2QQkFtRMGI2+Hpq4awEg45aH/ZI6reimm11JUV8VFVSkgDvKUF5GkmibhrUHFTw4WfX6i49OrcnoQa2QdoYtk1aE7NmvrDFStCTqdKzWoTIKQvyLc8CaLZdTrWCmGVVBr1RFurnK0UhCePijsommLGUh7GJc5PhgECBZj8+MKOK73v36NILavqjyAFmawAMz/F6rWr5Wsd19xNwGkQKldyd1mnTfpSswfdUk6J2fcNWk/4t5FNRQo6mYuYTM655l/Z936eOfatpG9Ma7Ro/Id/pyfw6Gk2JzCB6CUtjRVmFKDSqDUQYkOlvcNxJFBereKDJJZrskHX4v3YMCBJNQCAxx9E+bLEzmYK209Xk1KuzOfr3uThNm5ArZz6/bSXV9pCymkeMUx2iZlsQR6e1LDZ+jqWPunEvSBw6c3gXhfU8fJyWIw7/BokPa9YAz0Cxqncz9H6IeAquPWRljmK0MiV3i0idqqX2Hd/O3YppQbvpfbI6QNNHG2Bfv8/JwF+cWjFrht8m83oNTd+87sAoSCsTJFsz3SAUy6jAGq1BQ1S5aTRxTelOe0FRUApeWhHT1XI1f/gsEnU8eji4lv2y4Rv6O3ySGeGcfR1AqwCjQ0syKJcZ98FQ6LUll5O5AkD6+kKMhB7cX6aTpLx7wOYKYKnRjDdbx+UIznXUaN/LCWqxQ8+TOdtk21NDG9yilpFwhfHu7p1M5OKOI8pCyVzNu0TrdsKCxqFthtC3JBy4PEBmO0S4Q1zrHMADy9DpSiUXADz7bqHp6pjOwMXuz/BwMdAudrXtPgdAqHh2+lYWcLefB5IYRUPpuKoJTOYFtbvkaW1ONl2/CbFWM6W+zoXyrTgQlyPXrw7VInsA/yvqKN5agJ+28TwybM1R2Lw0D8c0IoTsHJzt5qdVU/myOSN9chqMVHnwBLW4gY5NrRnc72BWpJHkZDN+uLSzgRNY4pmA085KrySmeaFe68fN9moaCFc7rn/RmZd7SizduPYykx+Rxy/FVft+Ae+Bi0cDj4NSpI76FXIbsZ8NeSHRnMuYYnnx0jbw/9KR7aNOSbsIQlAkNJmiohigpY11wislv0+u2QHWiXDYmQKDBzWZTfZuOMSBSn+5BFqLEvN0Sv0bPKlgg8H9Vne7gbYKiCaert5rMsSqsEoOszv9IptR0RfxMS0BCt22Xtzi1FDoYiIFYLPyGxA0pJ0THX0LHB+635hvGaqxxr+lJs2DqjbgPUIHJ6ApX7LXn4+isYUH5+KMZbMTHqjbuX4oVtYlxCWZnEbBUcYyJXCF5F+2K9Maup+n281WJamG4iLZ0u4hPO29I4XhJ8oa9v9qFyUOqd8cQdEjDUkyTdCz72tewDspMihC0b9QjKUtPQi/fyCV94Fo6L2fm2+Z/XcZz58iVOkEOO59lcGOihBM5uyU/VFdGDdFAz175pi699dSScJeD9WkYCXmEZ8xaHkfCXkCfTcTVZFH7RfFXdXHOuGFLxv4vgRQU7tg5h6ZFJEIhGzNUeq5yewdnQeITYwFlJoY21YsadL+9yh7TqfBw7DcYjIjf9VaBrM+gqJKX+O5Q+ZsyNIYLzIhREJ4XNnvDepTuuahgiu3I8H39W45/90+P92MBN22JKwKJccfRlso43y5PGjOCFhR7zwe9ChmenE9kAmlW1x0uK8TutneR0/bfRNF80BsPwBjKcPhANNRdggNlMshCnhO7alfUWV0TI5CuoA4bqR/u1MYLN1PFzSXl61x3Vn/FqDm5lBmOCWCxJe99gAtajoE104aB2Tsagy9B+Ts/3siF7H2MuILN/n6H9HahEtu8h7/uuF6c3YV34zcqXjfEniBn5S+wnGwcK/mxGDqFZpvVMIsiSgLifAm/suUriHvO1I9bBkvU8qxuqZzPho+lHIWoHUMMkvQ4m1my7eF1xE9p5Cou1VfHsy0a1BIln0NnN+WcSJn1n3QRrR2G2cbIJ0wsQ2k88XEVJsYui8DuPSKi4LZFo0NrcRvP6DVIQZImPxDdHL5jnMWxOGilq0DLdtq5Qsw/XvO4Esfv8HGlrP/bDB3faUvYq8AujOAil4A/FwcAU+mhoURrc8sIiIdm1ljbJEJFS80WYKvM5vvj1cJxyoBuK5SsjGcrc+WEtjhIDmPbvq+IiZt6Qds5heo+PEYfP1AeXtAxqt25moS+gi27Gu9RfML7xLCdxLAJWUyWRyfZReR7H6UqE8MwG4jySa9srD/Ncw18slxZu6TP+p2LA6Qpwi3kEeN5qWZkxEYWU4J2EnRzh/SfRwL1oZh9gCSAlul90WInGMH8WHya8o/Rs7G6z26D6pCbxo8LAZ1cGMbAxwyIzpGLkUjLNzB4oRxT5hm9NP2s6BsRDW8YCZV+ZTfEtSJo3mXd4ITniGXMA8169ZdqSFks5PDuTCY6G8dJsPY6wcjL+BAOfJcriGIW+f/90fXnB9uo+UbkfVWMBNOCY5sH2LUGHSV+IdRbb05ZLvorUvg33hFaIP8DZJjRwpqYMhnl2Ybtpo8Aqgczwl/tW8PUDnO7pq/higogFp1e4YvNlcHjNzFly7uQrHTA9CPRjeKOrP4T16aWqtOa+fDTSaU2xySgNNSHFd7uTKo42HTm7mHoYP/XZoWW9KCzg1FX58rfxCd3cZL9vi1DX1z6ZDsuEiscmVCbGCvZx2a0RKYqpWgZgLc6H/qs+eJpkbaRXpAZi2HDi4RBkbILp6cxTqKx666YE8mrBlMmdhaO3pI7D8w3RhRo2U+GeA4sR0JqaP+pFM1WjPVtAuiaBbpZHqXM/dIPpNFMsT2WMbiLA+CpP2awdB6jkXxHvOlEk9IJSzXurOG6sU/zdRoSXmhoNO4CMm00ybDgbnBzxrhLgQg9vbids9NkoaqCCIrlWDXdaJ4WTgQYa/DAkCf/TvmJ8+1tXpMhoLEO3QlbM+0hBgfX5Jw6EisZcmeGPXlNSNc/RG7cILJA2epCcOuG9/10kbOyCAp1dDvyei8mE3I5YFVicfGsmNIb93+doqreomKIoO+E7k5ayne0meGbNQ91zdbU95Fd3hFv8rXwrJ0KjnkgJcRcRTWGcG9Ll5FbM8AFlWGLsVcAWonCC1wPUbcLPAI6FQrhC8qR3+yibDU0GH/6v2XsTvU9sFuTMfz/wAtQGOv8p6QP/1G4zX1+lJgnFzIU9l3s8++MaEsdjA3V352HEdJjlqbOZftnKu9YmwuVQTWxT+Riuz+6NlMzsQHbDvVntxvssxAb2CSrFCb2azPjctVTbIr6Z2n1EkLrKytv9H0KZklyGSdt+oBq/nuqrmRpgwtT68QJoqhCY/O/MaUu46rh/IMHAzq+WmJ1vzB6Jna3yTbxWdMSbWetffbz1iSW1yDSNqdZ0/6xna6cdbHfessfpmRv0f4JPgH4ZdANT3R8GTO8C3ETM4gW0lpMwLp4cPdsh/wtgZ13LCd7jP7tGQyfPEt7W2esG5I1phVv/Ef3Tbfpmslap7KhTyGV+4rQt6ArwXN6041x6XyI5EltCAfOg1qRcPRhzYCqBqAY9XohS0gNUFYX0L/5HfYWtsf2r1GGLc2HOPxBZYfWKiofeS3ubEwwSn8P2jozt+wbivYWID1fasNfIdalVApNZZgU3S0B47g5ozFjsHhNc8Ov1qgXYaMkRVNJht0zXZEejoOqpBO7xnljH70JsHkcmCSVe93n42HDKNsI4s+a5pBObaQY+IlhLaf5+bzdpIYto6Mh2RAQbSs5JWq6n/wr3CfDpvI4ZlZ6aLovXMNOVnFjYIiXzzcy0Mk1u9Vz785epPQd2pReYH0isqki+1DwQDBeHIKKJmCqBOPfsAmQaYewEKzbMwBRclijOwL9RkvFHC/NZ7f4DYEab0wzTwZJGXeGjIV+jCOmy++OXIKc3n9ZTL/RV5VrFFcvr7+WUHILD71Q79R6TD9xQlOVt6j6Z47tqjXRCzb+/qv8xilXmtJbXE62QDmO+o428Z7mOlNphgPcNOThEbWFZaSClYmL66T14Zc/QfEFpfSkrFdBcKP3xHTCAbc4SenLUizTwYlbPSb8P8SYitL5qXOwqq5RJuEuReWxWJL+JYw/ix01R/SngCyRBZOPEpjf4qIn6zKLZeElmRkjyx6pmc0iTlLGIzN5ahELdb2lIt9ESoU5OApHBD3JjKOCxew3qWjs7QtrHcKnRiPzXfubLyZRvql69hpeNtawuBB5Jp2INtoQp5sKtxcR2TRAnXfhBactQgpajGKYpR3ePgOA1WjofdvT/+taKlXoKkGqzMLBMwnwDcv9tl/lVqDbV2vNM6xdnyPizibE6GWSJ9g3b4T5JbLKlPcZo15uycP4MbEU1s6/kJ2ixqydBa57zNDNg6uBWer59Wb2k7nGRS1hIyMQA9lnJysnYM26QDWb60X/qil0LidzQP2MJuSeGKaMkWlTreI/fxkdSmsvpNYAv92t6c4Blw0v7GayhJsd24NdODRi3xqTvDDDatAcuwJab2J3ifSYKxwcbrbm4KZWikHdci8uZpcGePgIs8+d8VXMrCgBcFomUmhHtglzI/khjy7ik+cwNPDLfkJAPIdU6YpdFJB0q6P5vNMg7ACmxzTsJUMayRX7YzPjkJ8tTNREocdlkgsT7JawsDb70lGHq5kH+jfq5/Q5z/AT+t6UfzE6fnrBveuCREgYdIS3Bo8/i230T7ARdQzmmxTYCJlDqE7Q+ckOUgQLXIhdGi6R2yXCpH1HKY0w6sej6wlUmB5XCGSRixb04D9vVTiE1fZnswl+sLcgDeLFqmiYGWrYFOc+OwVb1rg4Qdszj2pI3aoLKYaO8Z66PNzfq6GjJJCeEDccn6NLnePmZFCAl+fbeJBjqqfwYawlV9Jh6wslBtXeWo0ap7CNV8acO2Vg34kvTR02T10I8LpazeLnmCkh3R8UEE4YkZ9ezxU3s7aMtuIBO2zITfytpot9lYbqhclxpamBtC3Xbi09r/+iDM8cVYgC0IMIZrTppeq3kKIad1DlDbaoE5B5Q5bDg2oD5X5gFTc0IzfGdcTQCIowtVk4c02Dr/AP6FL1+wXeUGTXy1Ua75O6nBwOPxsuZbJhQPwSR+VwnSQK1ETalhSspsS+bfgt4AXFc6PxG8RPl/Wgy/DuTS2Z+9Jy8pW6o1BMsJo7BGbk6qqNdYcjTGpjDMP146erQbSmMOAgdmwAAA" alt="Sahiwal cow">
+
+                     </div>
+                    <div class="breed-info">
+                        <h3>Sahiwal</h3>
+                        <p>From the Punjab region, Sahiwal is considered one of the best dairy breeds in India and Pakistan.</p>
+                        <a href='payment.html' class="btn btn-primary">Buy Now</a>
+
+                    </div>
+                </div>
+                
+                <div class="breed-card">
+                    <div class="breed-image">
+                        <img src="https://i.pinimg.com/originals/f2/fe/0d/f2fe0d31ba5381ecd5d4de023baa7e3e.jpg" alt="Red Sindhi cow">
+                    </div>
+                    <div class="breed-info">
+                        <h3>Red Sindhi</h3>
+                        <p>This breed from Sindh province (now in Pakistan) is known for its heat tolerance and disease resistance.</p>
+                        <a href='payment.html' class="btn btn-primary">Buy Now</a>
+ 
+                    </div>
+                </div>
+            </div>
+            <p><center><u>for more</u></center></p>
+        </div>
+    </section>
+     
+      <!-- Product Section -->
+<section id="products" class="products">
+    <div class="container">
+        <h2 class="section-title">Our Products</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.llG1jYH16ZSlc4RSP-2XMgHaEO?w=266&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Product 1">
+                <div class="product-info">
+                    <h3>A2 Cow Milk</h3>
+                    <p>Fresh and pure organic milk from indigenous breeds.</p>
+                    <a href='payment.html' class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.v8WpOA_44eXStcaEfLmqBAHaE8?w=282&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Product 2">
+                <div class="product-info">
+                    <h3>Ghee (Clarified Butter)</h3>
+                    <p>Traditional, creamy ghee made from healthy cow milk.</p>
+                    <a href='payment.html' class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <img src="https://th.bing.com/th/id/OIP.qOT-HnZbETZS04l5v2zFQwHaFj?w=246&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Product 3">
+                <div class="product-info">
+                    <h3>Fresh Curd</h3>
+                    <p>Rich, creamy curd made with natural fermentation.</p>
+                    <a href='payment.html' class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <p><a href=""><u><center>for more</center> </u></a></p>
+    </div>
+</section>
+
+
+<!-- heritage section -->
+ 
+
+<section class="slideshow-section">
+    <h2>Know our desi cows</h2>
+    <div class="slideshow-container">
+        <img id="breed-image" src="images/gir.jpg" alt="Cow Breed">
+        <p id="breed-name">Gir</p>
+    </div>
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+</section>
+
+<section class="awareness-section">
+    <h1>Smart Breeding & Indian Cow Revival</h1>
+    <p>
+        Reviving native Indian cow breeds through smart breeding programs is crucial for sustainable dairy farming, biodiversity, and organic farming. 
+        Indigenous breeds like **Gir, Sahiwal, Red Sindhi, Tharparkar, and Kankrej** are resilient, produce high-quality milk, and support ecological balance.
+    </p>
+    <button id="awareness-btn">Join the Awareness Movement</button>
+    <p id="counter">People Engaged: <span id="count">0</span></p>
+</section>
+
+<script src="script.js"></script>
+
+
+
+
+
+
+
+ 
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact"  style="border: 5px solid rgb(25, 59, 59)";>
+        <div class="container">
+            <h2 class="section-title">Get Involved</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">How would you like to help?</label>
+                        <select id="interest" class="form-control">
+                            <option value="">Select an option</option>
+                            <option value="volunteer">Volunteer</option>
+                            <option value="donate">Donate</option>
+                            <option value="partner">Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-brand">Gaumitra</a>
+                    <p>Preserving India's indigenous cow breeds for future generations.</p>
+                </div>
+                <div class="footer-nav">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#breeds">Breeds</a></li>
+                        <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@gaumitra.org</p>
+                    <p>Phone: +91 9876543210</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Gaumitra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        $(document).ready(function(){
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+            
+            // Form submission
+            $('form').submit(function(e) {
+                e.preventDefault();
+                alert('Thank you for your interest! We will get back to you soon.');
+                this.reset();
+            });
+            
+            // Add animation to breed cards on scroll
+            $(window).scroll(function() {
+                $('.breed-card').each(function() {
+                    var cardPosition = $(this).offset().top;
+                    var scrollPosition = $(window).scrollTop() + $(window).height();
+                    
+                    if (scrollPosition > cardPosition) {
+                        $(this).addClass('animate');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Edit Member</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .form-section h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Farm Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cows.html">Cows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="members.html">Members</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 id="formTitle">Add New Member</h1>
+        
+        <form id="memberForm">
+            <input type="hidden" id="memberId">
+            
+            <div class="form-section">
+                <h2>Basic Information</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="role" class="form-label">Role</label>
+                        <select class="form-select" id="role" required>
+                            <option value="">Select Role</option>
+                            <option value="owner">Owner</option>
+                            <option value="manager">Manager</option>
+                            <option value="worker">Worker</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="address" rows="2"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Personal Information</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dateOfBirth">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" id="gender">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="emergencyContact" class="form-label">Emergency Contact Name</label>
+                        <input type="text" class="form-control" id="emergencyContact">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="emergencyPhone" class="form-label">Emergency Contact Phone</label>
+                        <input type="tel" class="form-control" id="emergencyPhone">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Employment Information</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="position" class="form-label">Position</label>
+                        <input type="text" class="form-control" id="position">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="joinDate" class="form-label">Join Date</label>
+                        <input type="date" class="form-control" id="joinDate">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="salary" class="form-label">Salary</label>
+                        <input type="number" class="form-control" id="salary" step="0.01">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="salaryType" class="form-label">Salary Type</label>
+                        <select class="form-select" id="salaryType">
+                            <option value="">Select Salary Type</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="hourly">Hourly</option>
+                            <option value="weekly">Weekly</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="workSchedule" class="form-label">Work Schedule</label>
+                        <input type="text" class="form-control" id="workSchedule">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="benefits" class="form-label">Benefits</label>
+                        <input type="text" class="form-control" id="benefits">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Additional Information</h2>
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Notes</label>
+                    <textarea class="form-control" id="notes" rows="3"></textarea>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="members.html" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Cancel
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-save"></i> Save Member
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2023 Farm Management System</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/member-service.js"></script>
+    <script src="scripts/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get member ID from URL if editing
+            const urlParams = new URLSearchParams(window.location.search);
+            const memberId = urlParams.get('id');
+            
+            if (memberId) {
+                // Editing existing member
+                document.getElementById('formTitle').textContent = 'Edit Member';
+                loadMemberData(memberId);
+            }
+            
+            // Setup form submission
+            document.getElementById('memberForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveMember();
+            });
+        });
+
+        function loadMemberData(memberId) {
+            const member = MemberService.getMemberById(memberId);
+            
+            if (!member) {
+                window.location.href = 'members.html';
+                return;
+            }
+            
+            // Set form values
+            document.getElementById('memberId').value = member.id;
+            document.getElementById('name').value = member.name;
+            document.getElementById('role').value = member.role;
+            document.getElementById('email').value = member.email || '';
+            document.getElementById('phone').value = member.phone || '';
+            document.getElementById('address').value = member.address || '';
+            document.getElementById('dateOfBirth').value = member.dateOfBirth || '';
+            document.getElementById('gender').value = member.gender || '';
+            document.getElementById('emergencyContact').value = member.emergencyContact || '';
+            document.getElementById('emergencyPhone').value = member.emergencyPhone || '';
+            document.getElementById('position').value = member.position || '';
+            document.getElementById('joinDate').value = member.joinDate || '';
+            document.getElementById('salary').value = member.salary || '';
+            document.getElementById('salaryType').value = member.salaryType || '';
+            document.getElementById('workSchedule').value = member.workSchedule || '';
+            document.getElementById('benefits').value = member.benefits || '';
+            document.getElementById('notes').value = member.notes || '';
+        }
+
+        function saveMember() {
+            // Collect form data
+            const member = {
+                id: document.getElementById('memberId').value || generateId(),
+                name: document.getElementById('name').value,
+                role: document.getElementById('role').value,
+                email: document.getElementById('email').value || null,
+                phone: document.getElementById('phone').value || null,
+                address: document.getElementById('address').value || null,
+                dateOfBirth: document.getElementById('dateOfBirth').value || null,
+                gender: document.getElementById('gender').value || null,
+                emergencyContact: document.getElementById('emergencyContact').value || null,
+                emergencyPhone: document.getElementById('emergencyPhone').value || null,
+                position: document.getElementById('position').value || null,
+                joinDate: document.getElementById('joinDate').value || new Date().toISOString(),
+                salary: document.getElementById('salary').value ? parseFloat(document.getElementById('salary').value) : null,
+                salaryType: document.getElementById('salaryType').value || null,
+                workSchedule: document.getElementById('workSchedule').value || null,
+                benefits: document.getElementById('benefits').value || null,
+                notes: document.getElementById('notes').value || '',
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+            
+            // Save member
+            if (document.getElementById('memberId').value) {
+                MemberService.updateMember(member);
+                showAlert('Member updated successfully!', 'success');
+            } else {
+                MemberService.addMember(member);
+                showAlert('Member added successfully!', 'success');
+                
+                // Reset form for new entry
+                document.getElementById('memberForm').reset();
+                document.getElementById('memberId').value = '';
+            }
+        }
+
+        function generateId() {
+            return 'member-' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function showAlert(message, type) {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.role = 'alert';
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            const container = document.querySelector('.container');
+            container.prepend(alert);
+            
+            setTimeout(() => {
+                alert.classList.remove('show');
+                setTimeout(() => alert.remove(), 150);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

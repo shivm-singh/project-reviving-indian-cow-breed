@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Edit Cow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .form-section h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Farm Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cows.html">Cows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="members.html">Members</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 id="formTitle">Add New Cow</h1>
+        
+        <form id="cowForm">
+            <input type="hidden" id="cowId">
+            
+            <div class="form-section">
+                <h2>Basic Information</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Cow Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="tagNumber" class="form-label">Tag Number</label>
+                        <input type="text" class="form-control" id="tagNumber" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="breed" class="form-label">Breed</label>
+                        <select class="form-select" id="breed" required>
+                            <option value="">Select Breed</option>
+                            <option value="Holstein">Holstein</option>
+                            <option value="Jersey">Jersey</option>
+                            <option value="Guernsey">Guernsey</option>
+                            <option value="Ayrshire">Ayrshire</option>
+                            <option value="Brown Swiss">Brown Swiss</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" required>
+                            <option value="active">Active</option>
+                            <option value="sold">Sold</option>
+                            <option value="deceased">Deceased</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dateOfBirth">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="weight" class="form-label">Weight (kg)</label>
+                        <input type="number" class="form-control" id="weight">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Ownership</h2>
+                <div class="mb-3">
+                    <label for="owner" class="form-label">Owner</label>
+                    <select class="form-select" id="owner">
+                        <option value="">Select Owner</option>
+                        <!-- Owners will be loaded by JavaScript -->
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="purchaseDate" class="form-label">Purchase Date</label>
+                    <input type="date" class="form-control" id="purchaseDate">
+                </div>
+                <div class="mb-3">
+                    <label for="purchasePrice" class="form-label">Purchase Price</label>
+                    <input type="number" class="form-control" id="purchasePrice" step="0.01">
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Health Information</h2>
+                <div class="mb-3">
+                    <label class="form-label">Vaccinations</label>
+                    <div id="vaccinationContainer">
+                        <!-- Vaccination entries will be added here -->
+                    </div>
+                    <button type="button" class="btn btn-outline-success btn-sm mt-2" id="addVaccinationBtn">
+                        <i class="bi bi-plus"></i> Add Vaccination
+                    </button>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Medical History</label>
+                    <div id="medicalHistoryContainer">
+                        <!-- Medical history entries will be added here -->
+                    </div>
+                    <button type="button" class="btn btn-outline-success btn-sm mt-2" id="addMedicalHistoryBtn">
+                        <i class="bi bi-plus"></i> Add Medical Record
+                    </button>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="cows.html" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Cancel
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-save"></i> Save Cow
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Vaccination Entry Template -->
+    <template id="vaccinationTemplate">
+        <div class="vaccination-entry mb-3 p-3 border rounded">
+            <div class="row">
+                <div class="col-md-4 mb-2">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control vaccination-date" required>
+                </div>
+                <div class="col-md-5 mb-2">
+                    <label class="form-label">Vaccine Name</label>
+                    <input type="text" class="form-control vaccination-name" required>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <label class="form-label">Next Due</label>
+                    <input type="date" class="form-control vaccination-next-due">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="form-label">Notes</label>
+                    <input type="text" class="form-control vaccination-notes">
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-danger btn-sm mt-2 remove-vaccination">
+                <i class="bi bi-trash"></i> Remove
+            </button>
+        </div>
+    </template>
+
+    <!-- Medical History Entry Template -->
+    <template id="medicalHistoryTemplate">
+        <div class="medical-history-entry mb-3 p-3 border rounded">
+            <div class="row">
+                <div class="col-md-3 mb-2">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control medical-date" required>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <label class="form-label">Issue</label>
+                    <input type="text" class="form-control medical-issue" required>
+                </div>
+                <div class="col-md-5 mb-2">
+                    <label class="form-label">Treatment</label>
+                    <input type="text" class="form-control medical-treatment" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="form-label">Notes</label>
+                    <input type="text" class="form-control medical-notes">
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-danger btn-sm mt-2 remove-medical">
+                <i class="bi bi-trash"></i> Remove
+            </button>
+        </div>
+    </template>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2023 Farm Management System</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/cow-service.js"></script>
+    <script src="scripts/member-service.js"></script>
+    <script src="scripts/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load owners for dropdown
+            loadOwners();
+            
+            // Get cow ID from URL if editing
+            const urlParams = new URLSearchParams(window.location.search);
+            const cowId = urlParams.get('id');
+            
+            if (cowId) {
+                // Editing existing cow
+                document.getElementById('formTitle').textContent = 'Edit Cow';
+                loadCowData(cowId);
+            }
+            
+            // Setup vaccination add button
+            document.getElementById('addVaccinationBtn').addEventListener('click', addVaccinationEntry);
+            
+            // Setup medical history add button
+            document.getElementById('addMedicalHistoryBtn').addEventListener('click', addMedicalHistoryEntry);
+            
+            // Setup form submission
+            document.getElementById('cowForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveCow();
+            });
+        });
+
+        function loadOwners() {
+            const ownerSelect = document.getElementById('owner');
+            const members = MemberService.getAllMembers();
+            
+            members.forEach(member => {
+                const option = document.createElement('option');
+                option.value = member.id;
+                option.textContent = member.name;
+                ownerSelect.appendChild(option);
+            });
+        }
+
+        function loadCowData(cowId) {
+            const cow = CowService.getCowById(cowId);
+            
+            if (!cow) {
+                window.location.href = 'cows.html';
+                return;
+            }
+            
+            // Set form values
+            document.getElementById('cowId').value = cow.id;
+            document.getElementById('name').value = cow.name;
+            document.getElementById('tagNumber').value = cow.tagNumber;
+            document.getElementById('breed').value = cow.breed;
+            document.getElementById('status').value = cow.status;
+            document.getElementById('dateOfBirth').value = cow.dateOfBirth || '';
+            document.getElementById('weight').value = cow.weight || '';
+            document.getElementById('description').value = cow.description || '';
+            document.getElementById('owner').value = cow.ownerId || '';
+            document.getElementById('purchaseDate').value = cow.purchaseDate || '';
+            document.getElementById('purchasePrice').value = cow.purchasePrice || '';
+            
+            // Load vaccinations
+            if (cow.vaccinations && cow.vaccinations.length > 0) {
+                cow.vaccinations.forEach(vaccination => {
+                    addVaccinationEntry(vaccination);
+                });
+            }
+            
+            // Load medical history
+            if (cow.medicalHistory && cow.medicalHistory.length > 0) {
+                cow.medicalHistory.forEach(record => {
+                    addMedicalHistoryEntry(record);
+                });
+            }
+        }
+
+        function addVaccinationEntry(data = {}) {
+            const template = document.getElementById('vaccinationTemplate');
+            const clone = template.content.cloneNode(true);
+            
+            if (data.date) {
+                clone.querySelector('.vaccination-date').value = data.date;
+            }
+            if (data.name) {
+                clone.querySelector('.vaccination-name').value = data.name;
+            }
+            if (data.nextDue) {
+                clone.querySelector('.vaccination-next-due').value = data.nextDue;
+            }
+            if (data.notes) {
+                clone.querySelector('.vaccination-notes').value = data.notes;
+            }
+            
+            clone.querySelector('.remove-vaccination').addEventListener('click', function() {
+                this.closest('.vaccination-entry').remove();
+            });
+            
+            document.getElementById('vaccinationContainer').appendChild(clone);
+        }
+
+        function addMedicalHistoryEntry(data = {}) {
+            const template = document.getElementById('medicalHistoryTemplate');
+            const clone = template.content.cloneNode(true);
+            
+            if (data.date) {
+                clone.querySelector('.medical-date').value = data.date;
+            }
+            if (data.issue) {
+                clone.querySelector('.medical-issue').value = data.issue;
+            }
+            if (data.treatment) {
+                clone.querySelector('.medical-treatment').value = data.treatment;
+            }
+            if (data.notes) {
+                clone.querySelector('.medical-notes').value = data.notes;
+            }
+            
+            clone.querySelector('.remove-medical').addEventListener('click', function() {
+                this.closest('.medical-history-entry').remove();
+            });
+            
+            document.getElementById('medicalHistoryContainer').appendChild(clone);
+        }
+
+        function saveCow() {
+            // Collect basic information
+            const cow = {
+                id: document.getElementById('cowId').value || generateId(),
+                name: document.getElementById('name').value,
+                tagNumber: document.getElementById('tagNumber').value,
+                breed: document.getElementById('breed').value,
+                status: document.getElementById('status').value,
+                dateOfBirth: document.getElementById('dateOfBirth').value || null,
+                weight: document.getElementById('weight').value ? parseFloat(document.getElementById('weight').value) : null,
+                description: document.getElementById('description').value,
+                ownerId: document.getElementById('owner').value || null,
+                purchaseDate: document.getElementById('purchaseDate').value || null,
+                purchasePrice: document.getElementById('purchasePrice').value ? parseFloat(document.getElementById('purchasePrice').value) : null,
+                vaccinations: [],
+                medicalHistory: [],
+                notes: '',
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+            
+            // Collect vaccinations
+            const vaccinationEntries = document.querySelectorAll('.vaccination-entry');
+            vaccinationEntries.forEach(entry => {
+                cow.vaccinations.push({
+                    date: entry.querySelector('.vaccination-date').value,
+                    name: entry.querySelector('.vaccination-name').value,
+                    nextDue: entry.querySelector('.vaccination-next-due').value || null,
+                    notes: entry.querySelector('.vaccination-notes').value || ''
+                });
+            });
+            
+            // Collect medical history
+            const medicalEntries = document.querySelectorAll('.medical-history-entry');
+            medicalEntries.forEach(entry => {
+                cow.medicalHistory.push({
+                    date: entry.querySelector('.medical-date').value,
+                    issue: entry.querySelector('.medical-issue').value,
+                    treatment: entry.querySelector('.medical-treatment').value,
+                    notes: entry.querySelector('.medical-notes').value || ''
+                });
+            });
+            
+            // Save cow
+            if (document.getElementById('cowId').value) {
+                CowService.updateCow(cow);
+                showAlert('Cow updated successfully!', 'success');
+            } else {
+                CowService.addCow(cow);
+                showAlert('Cow added successfully!', 'success');
+                
+                // Reset form for new entry
+                document.getElementById('cowForm').reset();
+                document.getElementById('vaccinationContainer').innerHTML = '';
+                document.getElementById('medicalHistoryContainer').innerHTML = '';
+                document.getElementById('cowId').value = '';
+            }
+        }
+
+        function generateId() {
+            return 'cow-' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function showAlert(message, type) {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.role = 'alert';
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            const container = document.querySelector('.container');
+            container.prepend(alert);
+            
+            setTimeout(() => {
+                alert.classList.remove('show');
+                setTimeout(() => alert.remove(), 150);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
